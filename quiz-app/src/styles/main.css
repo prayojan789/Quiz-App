@@ -1,0 +1,197 @@
+/* ============================================================
+   src/styles/main.css
+   Global styles, CSS custom properties (design tokens),
+   resets, and keyframe animations for the entire quiz app.
+   ============================================================ */
+
+/* ── Google Fonts are loaded in index.html ── */
+
+/* ── CSS Custom Properties (Design Tokens) ── */
+:root {
+  /* Background layers */
+  --bg:        #0b0f1a;
+  --surface:   #131929;
+  --surface2:  #1a2236;
+
+  /* Borders */
+  --border:    rgba(255, 255, 255, 0.08);
+
+  /* Accent colours */
+  --cyan:      #00d4ff;
+  --cyan-dim:  rgba(0, 212, 255, 0.15);
+
+  --amber:     #f0c040;
+  --amber-dim: rgba(240, 192, 64, 0.15);
+
+  --green:     #4ade80;
+  --green-dim: rgba(74, 222, 128, 0.15);
+
+  --red:       #f87171;
+  --red-dim:   rgba(248, 113, 113, 0.15);
+
+  /* Text */
+  --text:      #e2e8f0;
+  --muted:     #64748b;
+
+  /* Typography */
+  --font:      'Sora', sans-serif;
+  --mono:      'JetBrains Mono', monospace;
+
+  /* Radii */
+  --r-sm:      8px;
+  --r:         14px;
+  --r-lg:      20px;
+  --r-xl:      24px;
+
+  /* Shadow */
+  --shadow:    0 8px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font);
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: var(--font);
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ── Keyframe Animations ── */
+
+/* Slide up + fade in — used for screen transitions */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* Simple fade in */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Scale up from slightly smaller — used for cards appearing */
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1);    }
+}
+
+/* Slide in from the left — used for each new question */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0);     }
+}
+
+/* Pulse opacity — used on timer when low */
+@keyframes pulse {
+  0%, 100% { opacity: 1;   }
+  50%       { opacity: 0.4; }
+}
+
+/* Pop scale — used on correct answer reveal */
+@keyframes pop {
+  0%   { transform: scale(1);    }
+  40%  { transform: scale(1.05); }
+  100% { transform: scale(1);    }
+}
+
+/* Shake horizontal — used on wrong answer reveal */
+@keyframes shake {
+  0%, 100% { transform: translateX(0);   }
+  25%       { transform: translateX(-6px);}
+  75%       { transform: translateX(6px); }
+}
+
+/* Score count-up entrance */
+@keyframes countIn {
+  0%   { opacity: 0; transform: scale(0.5);  }
+  60%  {             transform: scale(1.15); }
+  100% { opacity: 1; transform: scale(1);    }
+}
+
+/* Spin — utility */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Scrollbar Styling ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--surface2);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ── Utility Classes ── */
+
+/* Dotted grid background applied in App.jsx */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.035) 1px,
+    transparent 1px
+  );
+  background-size: 32px 32px;
+}
+
+/* Full-page centred flex container */
+.page-center {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Standard card surface */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow);
+  width: 100%;
+}
+
+/* ── Responsive helpers ── */
+@media (max-width: 480px) {
+  :root {
+    font-size: 14px;
+  }
+}
