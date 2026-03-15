@@ -9,9 +9,9 @@
 /* ── CSS Custom Properties (Design Tokens) ── */
 :root {
   /* Background layers */
-  --bg:        #0b0f1a;
-  --surface:   #131929;
-  --surface2:  #1a2236;
+  --bg:        #1c1a14;
+  --surface:   #252218;
+  --surface2:  #2e2b1e;
 
   /* Borders */
   --border:    rgba(255, 255, 255, 0.08);

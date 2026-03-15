@@ -53,39 +53,3 @@ function ProgressBar({ current, total, score }) {
 
 export default ProgressBar;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

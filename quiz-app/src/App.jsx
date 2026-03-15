@@ -181,7 +181,7 @@ function App() {
         </div>
       )}
 
-      {/* ── Result Screen ── */}
+      {/* ── Result Screen ──  */}
       {quizState === "finished" && (
         <ResultScreen
           score={score}
