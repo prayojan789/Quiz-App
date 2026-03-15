@@ -15,8 +15,8 @@
 
 /* ── Quiz card wrapper (playing state) ─────────────────────── */
 .quiz-card {
-  padding: 2rem 1.75rem;
-  max-width: 560px;
+  padding: 2.75rem 2.5rem;
+  max-width: 720px;
   animation: scaleIn 0.4s ease both;
 }
 
@@ -37,8 +37,8 @@
    START SCREEN
    ============================================================ */
 .start-screen__card {
-  padding: 2.5rem 2rem;
-  max-width: 480px;
+  padding: 3rem 2.75rem;
+  max-width: 640px;
   text-align: center;
   animation: scaleIn 0.5s ease both;
   position: relative;
